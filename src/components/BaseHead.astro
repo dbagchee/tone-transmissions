@@ -11,14 +11,16 @@ const makeTitle = title
 const makeDesc = description
   ? description
   : "Chasing tone with guitar pedals";
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <AstroSeo
   title={makeTitle}
   description={makeDesc}
-  canonical="https://yoursite.com/current-page"
+  canonical={canonicalURL}
   openGraph={{
-    url: "https://yoursite.com/current-page",
+    url: canonicalURL,
     title: makeTitle,
     description: makeDesc,
     images: [
@@ -39,11 +41,6 @@ const makeDesc = description
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Basic Meta Tags -->
-
-<meta name="keywords" content="keyword1, keyword2, keyword3" />
-<meta name="author" content="Your Name or Company Name" />
-
 <!-- Favicons -->
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -57,9 +54,6 @@ const makeDesc = description
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://www.yourwebsite.com/" />
 
 <!-- Additional SEO -->
 <meta name="robots" content="index, follow" />
