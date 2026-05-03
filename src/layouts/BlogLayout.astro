@@ -4,7 +4,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout>
+<BaseLayout title={frontmatter.title} description={frontmatter.description}>
   <section>
     <div class="py-24">
       <div class="lg:text-center">
